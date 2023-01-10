@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&family=Space+Grotesk&display=swap');
+
+:root {
+    --bg-color: #222831;
+    --body-color: #393e46;
+    --text-color: #EEEEEE;
+    --details-color: #00ADB5;
+    --font-family1: 'Bebas Neue', cursive;
+    --font-family2: 'Open Sans', sans-serif;
+    --font-family3: 'Space Grotesk', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family2);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    margin: 0;
+}
+
+.container {
+    background-color: var(--body-color);
+    transform-origin: top left;
+    transition: transform 0.5s linear;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 50px;
+}
+
+.container.show-nav {
+    transform: rotate(-20deg);
+}
+
+.circle-container {
+    position: fixed;
+    top: -100px;
+    left: -100px;
+}
+
+.circle {
+    background-color: var(--details-color);
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    position: relative;
+    transition: transform 0.5s linear;
+}
+
+.container.show-nav .circle {
+    transform: rotate(-70deg);
+}
+
+.circle button {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    background: transparent;
+    border: 0;
+    font-size: 26px;
+    color: var(--text-color);
+}
+
+.circle button:focus {
+    outline: none;
+}
+
+.circle button#open {
+    left: 60%;
+}
+
+.circle button#close {
+    top: 60%;
+    transform: rotate(90deg);
+    transform-origin: top left;
+}
+
+.container.show-nav+nav li {
+    transform: translateX(0);
+    transition-delay: 0.3s;
+}
+
+nav {
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style-type: none;
+    padding-left: 30px;
+}
+
+nav ul li {
+    text-transform: uppercase;
+    color: var(--text-color);
+    margin: 40px 0;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in;
+}
+
+nav ul li i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+nav ul li+li {
+    margin-left: 15px;
+    transform: translateX(-150%);
+}
+
+nav ul li+li+li {
+    margin-left: 30px;
+    transform: translateX(-200%);
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.5s;
+}
+
+nav a:hover {
+    color: var(--details-color);
+    font-weight: bold;
+}
+
+.bg-img1 {
+    background-image: url('https://professor-falken.com/wp-content/uploads/2017/07/Como-redirigir-o-redireccionar-a-otra-pagina-web-en-HTML-professor-falken.com_.jpg');
+}
+
+.bg-img2 {
+    background-image: url('https://www.oxfordwebstudio.com/user/pages/06.da-li-znate/sta-je-css/sta-je-css.png');
+}
+
+.bg-img3 {
+    background-image: url('https://programadorviking.com.br/wp-content/webp-express/webp-images/uploads/2019/02/javascript-porque-voce-deve-aprender-essa-linguagem.jpg.webp');
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    margin: 50px;
+}
+.title-element{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.container-slide {
+    display: flex;
+    width: 90vw;
+}
+.slide {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50vh;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    flex: 0.5;
+    margin: 10px;
+    position: relative;
+    transition: all 1000ms ease-in-out;
+    -webkit-transition: all 1000ms ease-in-out;
+    -moz-transition: all 1000ms ease-in-out;
+    -ms-transition: all 1000ms ease-in-out;
+    -o-transition: all 1000ms ease-in-out;
+}
+
+.slide h3 {
+    font-size: 24px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0;
+}
+
+.slide.active{
+    flex: 5;
+}
+
+.slide:active {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+
+.slide.active h3 {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+
+@media (max-width: 400px) {
+    .container {
+        width: 100vw;
+    }
+
+    .slide:nth-of-type(4),
+    .slide:nth-of-type(5) {
+        display: none;
+    }
+}
