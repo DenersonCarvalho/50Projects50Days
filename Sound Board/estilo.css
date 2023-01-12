@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&family=Space+Grotesk&display=swap');
+:root{
+    --bg-color: #222831;
+    --body-color: #393e46;
+    --body-color2: #c9c8c8;
+    --text-color: #EEEEEE;
+    --details-color: #00ADB5;
+    --font-family1: 'Bebas Neue', cursive;
+    --font-family2: 'Open Sans', sans-serif;
+    --font-family3: 'Space Grotesk', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 5px;
+    background-color: var(--bg-color);
+}
+.btn{
+    background-color: var(--body-color);
+    width: 150px;
+    height: 50px;
+    color: var(--details-color);
+    border: none;
+    border-radius: 3px;
+    gap: 2px;
+    margin: 0 5px;
+    transition: all .5s;
+}
+.btn:hover{
+    background-color: var(--details-color);
+    color: var(--bg-color);
+}
+.animacao{
+    animation: rotacao .5s infinite;
+}
+.btn:active{
+    transform: scale(0.98);
+}
+@keyframes rotacao {
+    0%{transform: rotate(2deg);}
+    25%{transform: rotate(0deg);}
+    50%{transform: rotate(-2deg);}
+    75%{transform: rotate(0deg);}
+    100%{transform: rotate(2deg);}
+}
